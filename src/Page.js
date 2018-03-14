@@ -2,8 +2,12 @@ import { Dimensions, Text, View } from 'react-native';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Page = ({ isLight, image, title, subtitle, width, height }) => {
+const Page = ({ isLight, image, title, subtitle, width, height, custom }) => {
   let titleElement = title;
+  if (custom) {
+    return <View style={[styles.container, { width, height }]}>{image}</View>;
+  }
+  
   if (typeof title === 'string' || title instanceof String) {
     titleElement = (
       <View style={styles.padding}>

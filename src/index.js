@@ -62,11 +62,12 @@ class Onboarding extends Component {
   keyExtractor = (item, index) => index.toString();
 
   renderItem = ({ item }) => {
-    const { image, title, subtitle, backgroundColor } = item;
+    const { image, title, subtitle, backgroundColor, custom } = item;
     const isLight = tinycolor(backgroundColor).getBrightness() > 180;
 
     return (
       <Page
+        custom={custom}
         isLight={isLight}
         image={image}
         title={title}
